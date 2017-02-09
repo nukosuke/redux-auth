@@ -76,11 +76,12 @@ class ButtonLoader extends React.Component {
   render () {
     let color = this.getColor();
     let style = extend({color, paddingLeft: 15, position: "relative"}, this.props.style);
+    const {loading, primary, spinConfig, spinColorDark, spinColorLight, spinColorDisabled, buttonProps} = this.props;
 
     return (
       <button
         disabled={this.props.disabled || this.props.loading}
-        {...this.props}
+        {...buttonProps}
         style={style}
         onClick={this.handleClick.bind(this)}>
         {this.renderIcon()} {this.props.children}

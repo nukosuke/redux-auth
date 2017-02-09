@@ -10,7 +10,7 @@ class AuthInput extends React.Component {
 
   static defaultProps = {
     label: "",
-    value: null,
+    value: "",
     errors: Immutable.fromJS([])
   };
 
@@ -43,12 +43,13 @@ class AuthInput extends React.Component {
   }
 
   render () {
+    const {errors, ...props} = this.props;
     return (
       <div>
         <label>{this.props.label}</label>
         <input
           placeholder={this.props.label}
-          {...this.props}
+          {...props}
           onChange={this.handleInput.bind(this)} />
         {this.renderErrorList()}
       </div>
